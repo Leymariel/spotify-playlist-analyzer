@@ -1,1 +1,1 @@
-https://leymariel.github.io/spotify-playlist-analyzer/
+https://spotify-playlist-analyzer-tau.vercel.app/
