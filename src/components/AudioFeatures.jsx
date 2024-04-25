@@ -8,15 +8,15 @@ function AudioFeatures({ features }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <p className="text-gray-400">Danceability</p>
-          <p className="text-2xl font-bold">{features?.danceability?.toFixed(2) || 'N/A'}</p>
+          <p className="text-2xl font-bold">{features?.danceability ? features.danceability.toFixed(2) : 'N/A'}</p>
         </div>
         <div>
           <p className="text-gray-400">Energy</p>
-          <p className="text-2xl font-bold">{features?.energy?.toFixed(2) || 'N/A'}</p>
+          <p className="text-2xl font-bold">{features?.energy ? features.energy.toFixed(2) : 'N/A'}</p>
         </div>
         <div>
           <p className="text-gray-400">Valence</p>
-          <p className="text-2xl font-bold">{features?.valence?.toFixed(2) || 'N/A'}</p>
+          <p className="text-2xl font-bold">{features?.valence ? features.valence.toFixed(2) : 'N/A'}</p>
         </div>
       </div>
     </div>
