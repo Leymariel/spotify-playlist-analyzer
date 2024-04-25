@@ -55,15 +55,21 @@ async function getGenreData(artists) {
     },
   });
   const data = await response.json();
-  data.artists.forEach((artist) => {
-    artist.genres.forEach((genre) => {
-      if (genreCount[genre]) {
-        genreCount[genre]++;
-      } else {
-        genreCount[genre] = 1;
+
+  if (data.artists) {
+    data.artists.forEach((artist) => {
+      if (artist.genres) {
+        artist.genres.forEach((genre) => {
+          if (genreCount[genre]) {
+            genreCount[genre]++;
+          } else {
+            genreCount[genre] = 1;
+          }
+        });
       }
     });
-  });
+  }
+
   return Object.entries(genreCount)
     .map(([name, count]) => ({ name, count }))
     .sort((a, b) => b.count - a.count);

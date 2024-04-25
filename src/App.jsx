@@ -15,19 +15,26 @@ function App() {
 
   const handleSearch = async (url) => {
     try {
+      // Clear the previous playlist data
+      setPlaylistData(null);
+      setArtistData([]);
+      setGenreData([]);
+      setAudioFeaturesData({});
+  
       const playlist = await getPlaylistData(url);
       setPlaylistData(playlist);
-
+  
       const artists = await getArtistData(playlist.tracks.items);
       setArtistData(artists);
-
+  
       const genres = await getGenreData(artists);
       setGenreData(genres);
-
+  
       const audioFeatures = await getAudioFeaturesData(playlist.tracks.items);
       setAudioFeaturesData(audioFeatures);
     } catch (error) {
       console.error('Error fetching data:', error);
+      // Display an error message to the user or handle the error as needed
     }
   };
 
